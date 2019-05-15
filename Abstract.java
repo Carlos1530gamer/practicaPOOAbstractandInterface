@@ -25,7 +25,7 @@ abstract class Creature implements PrintMethods{
 
 class Human extends Creature{
 
-	public Human(String name, String genere){
+	public Human(String name,String genere){
 		this.name = name;
 		this.genere = genere;
 	}
@@ -35,7 +35,7 @@ class Human extends Creature{
 	}
 
 	void sleep(){
-		println("is sleeping in a beed");
+		println(" is sleeping in a beed");
 	}
 }
 
@@ -45,90 +45,90 @@ class Animal extends Creature{
 		this.genere = genere;
 	}
 	void eat(){
-		println(this.name + "is eating in the floor");
+		println(this.name + " is eating in the floor");
 	}
 
 	void sleep(){
-		println("is sleeping in the floor");
+		println(" is sleeping in the floor");
 	}
 }
 
 class Student extends Human implements Study{
 
-	// public Student(String name, String genere){
-	// 	this.name = name;
-	// 	this.genere = genere;
-	// }
+	public Student(String name, String genere){
+		super(name, genere);
+	}
 
 	@Override
 	void eat(){
 		super.eat();
-		println(this.name + "eat maruchan");
+		println(this.name + " eat maruchan");
 	}
 
 	@Override
 	void sleep(){
-		println("the student no sleep");
+		println(" the student no sleep");
 	}
 
 	public void study(){
-		println("the student ever study");
+		println(" the student ever study");
 	}
 }
 
 class Teacher extends Human implements Study{
 
 	public Teacher(String name, String genere){
-		this.name = name;
-		this.genere = genere;
+		super(name,genere);
 	}
 
 	@Override
 	void eat(){
 		super.eat();
-		println(this.name + "eat a apple");
+		println(this.name + " eat a apple");
 	}
 
 	@Override
 	void sleep(){
-		println(this.name + "prepare a next class");
+		println(this.name + " prepare a next class");
 	}
 
 	public void study(){
-		println(this.name + "study for the next class");
+		println(this.name + " study for the next class");
 	}
 }
 
 class Cat extends Animal{
 	public Cat(String name, String genere){
-		this.name = name;
-		this.genere = genere;
+		super(name,genere);
 	}
 	void eat(){
-		println(this.name + "wake up");
+		println(this.name + " wake up");
 	}
 
 	void sleep(){
-		println(this.name + "finish eat");
+		println(this.name + " finish eat");
 	}
 }
 
 public class Abstract{
 	public static void main(String[] args) {
 		Student alumno = new Student("Carlos", "Male");
-		Teacher teacher = new Teacher("M", "Female");
+		Teacher teacher = new Teacher("Mai", "Female");
 		Human human = new Human("human", "???");
 
 		Cat cat = new Cat("Sakamoto", "Male");
 
 		alumno.eat();
+		human.eat();
 		teacher.eat();
 		cat.eat();
 
 		alumno.sleep();
+		human.eat();
 		teacher.sleep();
 		cat.sleep();
 
+		//only this objects get a interface
 		alumno.study();
 		teacher.study();
 	}
