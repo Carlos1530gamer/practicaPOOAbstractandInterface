@@ -12,11 +12,12 @@ public class Matrix{
             new MakeOperation(primeraMatriz, segundaMatriz, index, MATRIX_SIZE, matrizFinal).run();
         }
         System.out.println("Matriz final: ");
+        MakeOperation.printMatrix(matrizFinal);
 
     }
 }
 
-interface PrintMethods{
+interface PrintMethods{// no sirvio de nada :'v
     default void print(Object arg){
         System.out.print(arg);
     }
@@ -47,7 +48,7 @@ class MakeOperation extends Thread implements PrintMethods{
         for(int indexColumna = 0; indexColumna < tamanioMatriz; indexColumna++){
             matrizFinal[filaAOperar][indexColumna] = 0;
             for(int indexPos = 0; indexPos < tamanioMatriz; indexPos++){
-                matrizFinal[filaAOperar][indexColumna] += primeraMatriz[indexColumna][indexPos] * segundaMatriz[indexColumna][indexPos];
+                matrizFinal[filaAOperar][indexColumna] += primeraMatriz[indexColumna][indexPos] * segundaMatriz[indexPos][indexColumna];
             }
         }
         //
@@ -56,11 +57,11 @@ class MakeOperation extends Thread implements PrintMethods{
 
     public static void printMatrix(int[][] matrix) {
         for (int indexRow = 0; indexRow < Matrix.MATRIX_SIZE; indexRow++) {
-            print("[");
+            System.out.print("[");
             for (int indexColumna = 0; indexColumna < Matrix.MATRIX_SIZE; indexColumna++) {
-                print(matrix[indexRow][indexColumna] + ",");
+                System.out.print(matrix[indexRow][indexColumna] + ",");
             }
-            println("]");
+            System.out.println("]");
         }
     }
 }
